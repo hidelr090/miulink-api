@@ -3,13 +3,12 @@ import { nanoid } from 'nanoid';
 import Url from '../models/Url.js';
 import { validateUrl } from '../utils/utils.js';
 import dotenv from 'dotenv';
-import {identify} from "../middlewares/indentify.js";
 dotenv.config();
 
 const router = express.Router();
 
 // Short URL Generator
-router.post('/short', identify, async (req, res) => {
+router.post('/short', async (req, res) => {
     const { origUrl } = req.body;
     const base = process.env.BASE;
     const urlId = nanoid();
