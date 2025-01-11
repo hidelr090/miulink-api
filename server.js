@@ -5,7 +5,7 @@ import indexRouter from './src/routes/index.js';
 import connectDB from './src/config/db.js';
 import dotenv from 'dotenv';
 import rateLimit from "express-rate-limit";
-// import cors from 'cors';
+import cors from 'cors';
 
 dotenv.config();
 
@@ -33,6 +33,7 @@ app.use(limiter);
 //
 // app.use(cors(corsOptions));
 
+app.use(cors());
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
